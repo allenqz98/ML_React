@@ -38,22 +38,22 @@ export default function App() {
       <h1>xxx Prediction</h1>
       
       <label>Input</label>
-      <input placeholder="Input" {...register("val1")} />
+      <input placeholder="Input" {...register("val1", {pattern: /^\d+$/})} />
+      <div style={{ color: "red" }}>{errors.val1 && "Must be a number"}</div>
 
       <label>Input</label>
-      <input placeholder="Input" {...register("val2")} />
-
-      <label>Input</label>
-      <input
-        placeholder="Input"
-        type="text"
-        {...register("val3")}
-      />
-
-      <div style={{ color: "red" }}>
-        {Object.keys(errors).length > 0 &&
-          "There are errors, check your console."}
+      <input placeholder="Input" {...register("val2", {pattern: /^\d+$/})} />
+      <div style={{ color: "red" }}> 
+        {errors.val2 && "Must be a number"}
       </div>
+
+      <label>Input</label>
+      <input placeholder="Input" {...register("val3", {pattern: /^\d+$/})} />
+      <div style={{ color: "red" }}> 
+        {errors.val3 && "Must be a number"}
+      </div>
+
+
       <input type="submit" />
     </form>
     { open? <BaseModal /> : <span/>}
