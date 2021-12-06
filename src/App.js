@@ -35,20 +35,20 @@ export default function App() {
   return (
     <div>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>xxx Prediction</h1>
+      <h1>FINA4390 Final Project Model Prediction</h1>
       
-      <label>Input</label>
-      <input placeholder="Input" {...register("val1", {pattern: /^\d+$/})} />
+      <label>Lower Range of your Fico Score</label>
+      <input placeholder="Fico..." {...register("val1", {pattern: /^\d+$/})} />
       <div style={{ color: "red" }}>{errors.val1 && "Must be a number"}</div>
 
-      <label>Input</label>
-      <input placeholder="Input" {...register("val2", {pattern: /^\d+$/})} />
+      <label>Higher Range of your Fico Score</label>
+      <input placeholder="Fico..." {...register("val2", {pattern: /^\d+$/})} />
       <div style={{ color: "red" }}> 
         {errors.val2 && "Must be a number"}
       </div>
 
-      <label>Input</label>
-      <input placeholder="Input" {...register("val3", {pattern: /^\d+$/})} />
+      <label>How much have you paid yet?</label>
+      <input placeholder="Amount..." {...register("val3", {pattern: /^\d+$/})} />
       <div style={{ color: "red" }}> 
         {errors.val3 && "Must be a number"}
       </div>
