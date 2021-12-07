@@ -22,7 +22,7 @@ export default function App() {
 
 
   const onSubmit = (data) => {
-    $.get(`http://mingyang.pythonanywhere.com/model?last_fico_range_low=${data.val1}&last_fico_range_high=${data.val2}&total_rec_prncp=${data.val3}/`, 
+    $.get(`https://mingyang.pythonanywhere.com/model?last_fico_range_low=${data.val1}&last_fico_range_high=${data.val2}&total_rec_prncp=${data.val3}`, 
     res => {
       dispatch({type: 'toggleModal'})
       dispatch({type: 'updateResult', payload:res})
