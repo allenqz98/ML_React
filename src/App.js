@@ -53,7 +53,7 @@ export default function App() {
       </div>
 
       <label>What is the SBA Approval amount?</label>
-      <input placeholder="Fico..." {...register("val4")} />
+      <input placeholder="SBA Approval..." {...register("val4")} />
       <div style={{ color: "red" }}> 
         {errors.val4 && "Must be a number"}
       </div>
