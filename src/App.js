@@ -10,7 +10,6 @@ import BaseModal from './BaseModal';
 export default function App() {
 
   const open = useSelector((state) => state.open)
-  // const result = useSelector((state) => state.result)
 
   const dispatch = useDispatch()
   const {
@@ -22,7 +21,7 @@ export default function App() {
 
 
   const onSubmit = (data) => {
-    $.get(`https://mingyang.pythonanywhere.com/model?last_fico_range_low=${data.val1}&last_fico_range_high=${data.val2}&total_rec_prncp=${data.val3}`, 
+    $.get(`http://mingyang.pythonanywhere.com/model?State=${data.val1}&Term=${data.val2}&CreateJob=${data.val3}&SBA_Appv=${data.val4}&RetainedJob=${data.val6}`, 
     res => {
       dispatch({type: 'toggleModal'})
       dispatch({type: 'updateResult', payload:res})
@@ -30,6 +29,7 @@ export default function App() {
     }
     );
   };
+  
 
 
   return (
@@ -37,22 +37,36 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>FINA4390 Final Project Model Prediction</h1>
       
-      <label>Lower Range of your Fico Score</label>
-      <input placeholder="Fico..." {...register("val1", {pattern: /^\d+$/})} />
-      <div style={{ color: "red" }}>{errors.val1 && "Must be a number"}</div>
+      <label>What State is the company located at?</label>
+      <input placeholder="State..." {...register("val1")} />
 
-      <label>Higher Range of your Fico Score</label>
-      <input placeholder="Fico..." {...register("val2", {pattern: /^\d+$/})} />
+      <label>What is the loan term</label>
+      <input placeholder="Term..." {...register("val2")} />
       <div style={{ color: "red" }}> 
         {errors.val2 && "Must be a number"}
       </div>
 
-      <label>How much have you paid yet?</label>
-      <input placeholder="Amount..." {...register("val3", {pattern: /^\d+$/})} />
+      <label>How many job did the company create?</label>
+      <input placeholder="CreateJob..." {...register("val3")} />
       <div style={{ color: "red" }}> 
         {errors.val3 && "Must be a number"}
       </div>
 
+      <label>What is the SBA Approval amount?</label>
+      <input placeholder="Fico..." {...register("val4")} />
+      <div style={{ color: "red" }}> 
+        {errors.val4 && "Must be a number"}
+      </div>
+      {/* <label>NoEmp</label> */}
+      {/* <input placeholder="NoEmp..." {...register("val5")} />
+      <div style={{ color: "red" }}> 
+        {errors.val5 && "Must be a number"}
+      </div> */}
+      <label>How many jobs did the company retain</label>
+      <input placeholder="JobRetained..." {...register("val6")} />
+      <div style={{ color: "red" }}> 
+        {errors.val6 && "Must be a number"}
+      </div>
 
       <input type="submit" />
     </form>
