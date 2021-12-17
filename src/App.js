@@ -21,7 +21,7 @@ export default function App() {
 
 
   const onSubmit = (data) => {
-    $.get(`http://mingyang.pythonanywhere.com/model?State=${data.val1}&Term=${data.val2}&CreateJob=${data.val3}&SBA_Appv=${data.val4}&RetainedJob=${data.val6}`, 
+    $.get(`https://mingyang.pythonanywhere.com/model?State=${data.val1}&Term=${data.val2}&CreateJob=${data.val3}&SBA_Appv=${data.val4}&RetainedJob=${data.val6}`, 
     res => {
       dispatch({type: 'toggleModal'})
       dispatch({type: 'updateResult', payload:res})
