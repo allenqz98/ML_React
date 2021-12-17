@@ -35,8 +35,7 @@ export default function App() {
   return (
     <div>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>FINA4390 Final Project Model Prediction</h1>
-      <h3>Answer the following questions to predict whether the company will default its loans</h3>
+      <h1>Answer the following questions to predict whether the company will default its loans</h1>
       
       <label>What State is the company located at?</label>
       <input placeholder="State..." {...register("val1")} />
